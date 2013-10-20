@@ -1,0 +1,7 @@
+CACHE MANIFEST
+NETWORK:
+quoridor.css
+driver.js
+gui.js
+engine.js
+engineWorker.js

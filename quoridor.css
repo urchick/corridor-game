@@ -1,0 +1,194 @@
+body,html
+{
+  background: #111;
+  color: #aaa;
+  ooverflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+#size
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
+.gameContainer
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+  ooverflow: hidden;
+  background: -webkit-radial-gradient(40% 40%, circle, #422 0%, #100 100%);
+  background: -moz-radial-gradient(40% 40%, circle, #422 0%, #100 100%);
+}
+
+.field
+{
+  position: absolute;
+  background: grey;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  background: linear-gradient(140deg, rgba(96,128,160,0.3), rgba(160,192,224,0.3));
+}
+
+.wall
+{
+  position: absolute;
+  background: white;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  background: linear-gradient(140deg, #cba, #edc);
+  transition: left 1s, top 1s, width 1s, height 1s, border-radius 1s, background-image 1s;
+}
+
+.projWall
+{
+  background: red;
+  background: linear-gradient(140deg, #a00, #f00);
+}
+
+.pawn
+{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  box-shadow: 4px 4px 15px 0 rgba(0,0,0,0.5);
+  transition: left 1s, top 1s, width 1s, height 1s;
+}
+
+.pawn0
+{
+  background: white;
+  background:         radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
+  background: -webkit-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
+  background:    -moz-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
+  background:      -o-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
+  background:     -ms-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
+}
+
+.pawn1
+{
+  background: #f6f;
+  background:         radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
+  background: -webkit-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
+  background:    -moz-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
+  background:      -o-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
+  background:     -ms-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
+}
+
+.pawn2
+{
+  background: #0f0;
+  background:         radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
+  background: -webkit-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
+  background:    -moz-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
+  background:      -o-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
+  background:     -ms-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
+}
+
+.pawn3
+{
+  background: #ff0;
+  background:         radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
+  background: -webkit-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
+  background:    -moz-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
+  background:      -o-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
+  background:     -ms-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
+}
+
+.projPawn
+{
+  background: rgba(255,0,0,0.4);
+}
+
+.remWalls
+{
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+
+.remWalls>*
+{
+  color: #000;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+}
+
+#restartGame
+{
+  background: #666;
+  border: 0px #666 solid;
+}
+
+#restartGame:hover
+{
+  background: #aaa;
+  border: 0px #aaa solid;
+}
+
+#settings
+{
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 1;
+}
+
+#settings>div
+{
+  display: inline-block;
+  background: #aaa;
+  color: #111;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left;
+}
+
+#settings h1
+{
+  font-size: 30pt;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#settings input[type="button"]
+{
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#settings fieldset
+{
+  display: inline-block;
+}
+
+.displayNone
+{
+  display: none;
+}
+
+#progress
+{
+  opacity: 0;
+  transition: opacity 3s;
+} 
