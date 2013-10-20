@@ -1,0 +1,206 @@
+<!doctype html>
+<html manifest="cache.manifest">
+  <head>
+    <meta charset="windows-1251">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+    <title>Quoridor Game 10</title>
+    <link type="text/css" rel="stylesheet" href="quoridor.css">
+  </head>
+  <body>
+
+    <input type='button' id='restartGame' value='Restart game'>
+    <div id='title' style='text-align: center; color: #000;'></div>
+    <div id='status' style='text-align: center'></div>
+    
+    <div id='size'></div>
+    
+    <div id="settings">
+    
+      <div>
+        <h1 style="text-align: center"> Quoridor Game 10 </h1>
+        
+        <label> Board size: <input type="number" min="3" max="9" value="9"> </label> <br>
+        <label> Walls number per player: <input type="number" min="1" value="10"> </label> <br>
+        
+        <fieldset>
+          <legend> 1<sup>st</sup> Player </legend>
+          <label> <input type="radio" name="type1"> Computer </label>
+          <label> AI level: <input id='ailevel1' type="number" min="0" max="512" value="1"> </label> <br>
+          <label> <input type="radio" name="type1" checked> Human </label> <br>
+          <input type="text" value="Player 1">
+        </fieldset>
+        <fieldset>
+          <legend> 2<sup>nd</sup> Player </legend>
+          <label> <input type="radio" name="type2" checked> Computer </label>
+          <label> AI level: <input id='ailevel2' type="number" min="0" max="512" value="1"> </label> <br>
+          <label> <input type="radio" name="type2"> Human </label> <br>
+          <input type="text" value="Player 2">
+        </fieldset>
+        <!--
+        <fieldset>
+          <legend> 3<sup>rd</sup> Player </legend>
+          <label> <input type="radio" name="type3"> Computer </label> <br>
+          <label> <input type="radio" name="type3"> Human </label> <br>
+          <label> <input type="radio" name="type3" checked> None </label> <br>
+          <input type="text" value="Player 3">
+        </fieldset>
+        <fieldset>
+          <legend> 4<sup>th</sup> Player </legend>
+          <label> <input type="radio" name="type4"> Computer </label> <br>
+          <label> <input type="radio" name="type4"> Human </label> <br>
+          <label> <input type="radio" name="type4" checked> None </label> <br>
+          <input type="text" value="Player 4">
+        </fieldset>
+        -->
+
+        <br>
+        
+        <label> AI threads: <input id='aithreads' type="number" min="1" value="4"> </label>
+        
+        <br>
+        <div style="text-align: center">
+          <input type="button" value="Start" id="startButton">
+          <input type="button" value="Back" id="backButton">
+        </div>
+      </div>
+
+    </div>
+    
+    <div style="text-align: center" id="progress">
+      <progress value="0" max="100"></progress> 1
+    </div>
+    
+    <script>
+      var Quoridor = {};
+    </script>
+    
+    <script src="engine.js" async defer></script>
+    <script src="gui.js" async defer></script>
+    <script src="driver.js" async defer></script>
+    
+    <script>
+      "use strict";
+      
+      document.body.onload = function()
+      {
+        var radios = document.querySelectorAll('#settings input[type="radio"]');
+        var numbers = document.querySelectorAll('#settings input[type="number"]');
+
+        for(var i=radios.length-1;i>=0;i--)
+          radios[i].onclick = function()
+            {
+              numbers[4].disabled = !radios[0].checked && !radios[2].checked;
+            };
+        
+        numbers[2].addEventListener('input', function() { radios[0].checked = true; }, false);
+        numbers[3].addEventListener('input', function() { radios[2].checked = true; }, false);
+        
+        var gameContainer, restartTimeout=NaN;
+        
+        var backButton = document.querySelector('#backButton');
+        backButton.className = 'displayNone';
+        
+        document
+          .querySelector('#restartGame')
+            .addEventListener
+            (
+              'mousedown',
+              function()
+              {
+                document.querySelector('#settings').className = '';
+              }
+            );
+        
+        document
+          .querySelector('#startButton')
+            .addEventListener
+            (
+              'click',
+              function()
+              {
+                gameContainer && document.body.removeChild(gameContainer);
+                gameContainer = undefined;
+
+                backButton.className = '';
+                
+                document.querySelector('#settings').className = 'displayNone';
+              
+                //var bbox = document.querySelector('#size').getBoundingClientRect();
+        
+                gameContainer = document.createElement('div');
+                gameContainer.className = 'gameContainer';
+                document.body.appendChild(gameContainer);
+
+                var names = document.querySelectorAll('#settings input[type="text"]');
+                
+                var comps =
+                [
+                  radios[0].checked,
+                  radios[2].checked//,
+                  //comps[4].checked ? 1 : comps[5].checked*2,
+                  //comps[7].checked ? 1 : comps[8].checked*2
+                ];
+
+                console.log(comps+'');
+                
+                names =
+                [
+                  names[0].value,
+                  names[1].value//,
+                  //names[2].value,
+                  //names[3].value
+                ];
+
+                /*if(!comps[3])
+                  comps.length = 3,
+                  names.length = 3;
+                else
+                  comps[3] = comps[3]==1;
+
+                if(!comps[2])
+                  comps.splice(2,1),
+                  names.splice(2,1);
+                else
+                  comps[2] = comps[2]==1; */
+                  
+                comps.length>2 && comps.indexOf(false)>=0 &&
+                  alert('AI works good only in 2-players mode');
+                
+                
+                new Quoridor.Driver
+                (
+                  numbers[0].value|0,
+                  names.length,
+                  numbers[1].value|0,
+                  [numbers[2].value|0,numbers[3].value|0],
+                  numbers[4].value|0,
+                  names,
+                  comps,
+                  new Quoridor.GUI(
+                    gameContainer,
+                    numbers[0].value|0,
+                    names,
+                    comps)
+                );
+        
+              },
+              false
+            );
+        
+        backButton
+        .addEventListener
+          (
+            'click',
+            function()
+            {
+              document.querySelector('#settings').className = 'displayNone';
+            }
+          );
+        
+        //document.getElementById("startButton").click();
+      };
+
+    </script>
+
+  </body>
+</html>
