@@ -18,9 +18,9 @@ Pawn moves
 The pawns are moved one square at a time, horizontally or vertically, forwards or backwards.
 The pawns must get around the walls.
 
-Positioning of the fences
-The fences must be placed between 2 sets of 2 squares.
-The fences can be used to facilitate the player’s progress or to impede that of the opponent, however, an acess to the goal line must always be left open for each player.
+Positioning of the walls
+The walls must be placed between 2 sets of 2 squares.
+The walls can be used to facilitate the player’s progress or to impede that of the opponent, however, an acess to the goal line must always be left open for each player.
 
 Face to face
 When two pawns face each other on neighbouring squares which are not separated by a wall, the player whose turn it is can jump the opponent’s pawn (and place himself behind him), thus advancing an extra square. If there is a wall behind the said pawn, the player can place his pawn to the left or the right of the other pawn. 
