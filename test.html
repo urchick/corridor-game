@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="windows-1251">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+  </head>
+  <body>
+
+    <script src="engineWorker.js"> </script>
+    
+    <script>
+      'use strict';
+
+      if(1)
+      {
+        var a = new Int32Array(100);
+
+        var t = -new Date;
+        
+        for(var j=0;j<100000;j++)
+          for(var i=0;i<100;i++)
+          {
+            a[(i+j)%100] = i+a[(i+j)%99];
+            a[(i+j)%95] = i+a[(i+j)%34];
+            a[(i+j)%67] = i+a[(i+j)%59];
+            a[(i+j)%23] = i+a[(i+j)%78];
+            a[(i+j)%34] = i+a[(i+j)%91];
+          }
+
+        document.write(t+ +new Date);
+
+      }
+
+      if(0)
+      {
+        var a = new Array(100);
+
+        var t = -new Date;
+        
+        for(var j=0;j<100000;j++)
+          for(var i=0;i<100;i++)
+          {
+            a[(i+j)%100] = i+a[(i+j)%99];
+            a[(i+j)%95] = i+a[(i+j)%34];
+            a[(i+j)%67] = i+a[(i+j)%59];
+            a[(i+j)%23] = i+a[(i+j)%78];
+            a[(i+j)%34] = i+a[(i+j)%91];
+          }
+
+        document.write(t+ +new Date);
+
+      }
+
+    </script>
+    
+  </body>
+</html>
