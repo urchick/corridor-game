@@ -28,8 +28,7 @@ body,html
   margin: 0;
   padding: 0;
   ooverflow: hidden;
-  background: -webkit-radial-gradient(40% 40%, circle, #422 0%, #100 100%);
-  background: -moz-radial-gradient(40% 40%, circle, #422 0%, #100 100%);
+  background: radial-gradient(40% 40%, circle, #422 0%, #100 100%);
 }
 
 .field
@@ -65,53 +64,37 @@ body,html
   margin: 0;
   padding: 0;
   border-width: 0;
-  box-shadow: 4px 4px 15px 0 rgba(0,0,0,0.5);
+  box-shadow: 4px 4px 15px 0 #0008;
   transition: left 1s, top 1s, width 1s, height 1s;
 }
 
 .pawn0
 {
   background: white;
-  background:         radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
-  background: -webkit-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
-  background:    -moz-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
-  background:      -o-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
-  background:     -ms-radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
+  background: radial-gradient(40% 40%, circle, #fff 0%, #888 100%);
 }
 
 .pawn1
 {
   background: #f6f;
-  background:         radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
-  background: -webkit-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
-  background:    -moz-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
-  background:      -o-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
-  background:     -ms-radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
+  background: radial-gradient(40% 40%, circle, #f6f 0%, #838 100%);
 }
 
 .pawn2
 {
   background: #0f0;
-  background:         radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
-  background: -webkit-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
-  background:    -moz-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
-  background:      -o-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
-  background:     -ms-radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
+  background: radial-gradient(40% 40%, circle, #0f0 0%, #080 100%);
 }
 
 .pawn3
 {
   background: #ff0;
-  background:         radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
-  background: -webkit-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
-  background:    -moz-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
-  background:      -o-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
-  background:     -ms-radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
+  background: radial-gradient(40% 40%, circle, #ff0 0%, #880 100%);
 }
 
 .projPawn
 {
-  background: rgba(255,0,0,0.4);
+  background: #f006;
 }
 
 .remWalls
@@ -143,7 +126,7 @@ body,html
 
 #settings
 {
-  background: rgba(0,0,0,0.5);
+  background: #0008;
   position: absolute;
   left: 0;
   top: 0;
